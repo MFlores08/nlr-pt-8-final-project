@@ -44,7 +44,7 @@ public class CoffeeRecipeController {
         }
     }
 
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @ResponseStatus(HttpStatus.OK)
     @GetMapping("collection_id /{collectionId}")
     public CoffeeRecipe getCoffeeRecipeByCollectionId(@PathVariable int collectionId){
@@ -57,7 +57,7 @@ public class CoffeeRecipeController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping("/{recipe_name}")
     public CoffeeRecipe getCoffeeRecipeByRecipeName(@PathVariable String recipeName){
         CoffeeRecipe coffeeRecipe = coffeeRecipeDao.getCoffeeRecipeByRecipeName(recipeName);

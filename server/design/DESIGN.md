@@ -6,4 +6,4 @@ If your documents are tracked elsewhere, add links to your documents below:
 
 ## Your Design document links below:
 
-Design: https://docs.google.com/document/d/1qDIPLA1-wss1MIibU056_fbruZ54YbuX7r3lJ5mBIpI/edit?usp=sharing
+Design: https://docs.google.com/document/d/1afcUzd9weOYfCR0gq5QTUrbqzSfEsaqH0bFBYtIR7Ts/edit?usp=sharing

@@ -19,7 +19,7 @@ public class NutritionInfoController {
     }
 
     @ResponseStatus(HttpStatus.OK)
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     @GetMapping("/{recipeId}")
     public NutritionInfo getNutritionInfoById(@PathVariable int recipeId){
         NutritionInfo nutritionInfo = nutritionInfoDao.getNutritionInfoByRecipeId(recipeId);

@@ -34,7 +34,7 @@ public class CollectionController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/{collectionName}", method = RequestMethod.GET)
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public Collection getCollectionByName(@PathVariable String collectionName){
             Collection collection = collectionDao.getCollectionByCollectionName(collectionName);
             if (collection == null) {
@@ -46,7 +46,7 @@ public class CollectionController {
 
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(path = "/{collectionId}", method = RequestMethod.GET)
-    @PreAuthorize("hasRole('USER')")
+    @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public Collection getCollectionById(@PathVariable int collectionId){
         Collection collection = collectionDao.getCollectionById(collectionId);
         if (collection == null) {
