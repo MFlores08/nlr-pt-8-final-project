@@ -67,5 +67,27 @@ export default {
 </script>
 
 <style scoped>
-
+#login {
+  background-color: #AA9ABA;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+form {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h1 {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+label {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+#password {
+  background-color: #E3B9BC;
+}
+#username {
+  background-color: #E3B9BC;
+}
+button {
+  background-color: #8783D1;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
 </style>
