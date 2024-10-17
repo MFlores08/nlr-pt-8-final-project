@@ -86,9 +86,6 @@ nav button:hover {
 main {
   grid-area: main;
   background-color: #CCB7B7;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-areas: "collections recipes";
   overflow: auto;
 }
 footer {
