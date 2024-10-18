@@ -1,7 +1,7 @@
 <template>
   <div id="coffee-app">
     <header>
-      <img id="coffeeImage" src="./assets/coffee-img.jpg" alt="">
+      <img id="coffeeImage" src="./assets/coffee-generated.jpg" alt="">
       <h1 id="pageTitle">BrewKeeper</h1>
       <nav>
         <router-link v-bind:to="{ name: 'home' }">
@@ -62,7 +62,10 @@ header {
 }
 
 #coffeeImage {
-  height: 20%;
+  height:55px;
+  width: 55px;
+  margin-left: 10px;
+  background-blend-mode: color-burn;
 }
 
 header h1 {
