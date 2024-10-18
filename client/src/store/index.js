@@ -15,9 +15,9 @@ export function createStore(currentToken, currentUser) {
         state.currentCollectionId = id;
       },
       SET_COLLECTIONS(state, collections) {
-        state.collections= collections;
+        state.collections = collections;
       },
-      SET_RECIPES (state, recipes) {
+      SET_RECIPES(state, recipes) {
         state.recipes = recipes;
       },
       SET_AUTH_TOKEN(state, token) {

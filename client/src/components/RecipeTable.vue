@@ -2,16 +2,27 @@
   <section id="recipes">
     <h1></h1>
     <table id="recipe-table">
-        <thead>
-            <tr>
-                <th>Recipes</th>
-            </tr>
-        </thead>
-        <tbody id="recipe-table-body">
-          <tr v-for="recipe in recipes" :key="recipe.id">
-            <td>{{ recipe.name }}</td>
-          </tr>
-        </tbody>
+      <thead>
+        <tr>
+          <th>Recipes</th>
+        </tr>
+      </thead>
+      <tbody id="recipe-table-body">
+        <tr v-for="recipe in recipes" :key="recipe.id">
+          <td>
+            <div id="recipe-name">
+              <div>
+                <router-link v-bind:to="{
+                  name: 'recipe-detail',
+                  params: { recipeId: recipe.id },
+                }">
+                  {{ recipe.name }}
+                </router-link>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
     </table>
   </section>
 </template>
@@ -33,11 +44,13 @@ export default {
   grid-area: recipes;
   overflow: auto;
 }
+
 #recipe-table {
   border-collapse: collapse;
   border: none;
   width: 100%;
 }
+
 #recipe-table th {
   position: sticky;
   top: 0;
@@ -45,12 +58,18 @@ export default {
   color: black;
   z-index: 1;
 }
+
 #recipe-table tr {
   background-color: #D5C3C3;
 }
+
 #recipe-table td {
   text-align: center;
   border: 1px #8783D1;
   padding: 2px 5px 2px 5px;
+}
+
+#recipe-name {
+  color: #544F96;
 }
 </style>

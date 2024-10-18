@@ -6,6 +6,7 @@ import HomeView from '../views/HomeView.vue'
 import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
 import RegisterView from '../views/RegisterView.vue'
+import RecipeDetailView from '../views/RecipeDetailView.vue'
 
 
 /**
@@ -21,9 +22,17 @@ const routes = [
       path: '/',
       name: 'home',
       component: HomeView,
-      // meta: {
-      //   requiresAuth: true
-      // }
+      meta: {
+        requiresAuth: false
+      }
+    },
+    {
+      path: '/coffee_recipes/:recipeId',
+      name: 'recipe-detail',
+      component: RecipeDetailView,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
       path: "/login",

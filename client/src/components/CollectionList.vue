@@ -4,7 +4,18 @@
     <ul id="collection-list">
       <li v-for="collection in collections" v-bind:key="collection.id" @click="selected(collection.id)">
         {{ collection.name }}
-      </li>
+      <span id="icon-container" v-if="isAdmin">
+        <router-link v-bind:to="{
+          name: 'addRecipe',
+          params: {collectionId:collection.id},
+        }">
+        <font-awesome-icon
+        :icon="['fal', 'mug-hot']"
+        class="icon"
+        title="Add Recipe"/>
+      </router-link>
+      </span>
+    </li>
     </ul>
   </section>
 </template>
@@ -14,6 +25,11 @@ export default {
   computed: {
     collections() {
       return this.$store.state.collections;
+    },
+    isAdmin() {
+      return this.$store.state.user &&
+      this.$store.state.user.authoritiesString &&
+      this.$store.state.user.authoritiesString.includes('ROLE_ADMIN');
     }
   },
   methods: {
@@ -26,21 +42,23 @@ export default {
 
 <style>
 #collections {
-    grid-area: collections;
-    border-right: 1px solid black;
-    border-bottom: none;
+  grid-area: collections;
+  border-right: 1px solid black;
+  border-bottom: none;
 }
+
 #collections li {
   cursor: pointer;
+  text-transform: capitalize;
 }
-#collections li:hover{
+
+#collections li:hover {
   background-color: #E3B9BC;
   color: black;
 }
-#collections h2 {
-  margin-top: 0;
-  background-color: #D1ABAD;
-  color:black
-}
 
+#collections h2 {
+  background-color: #D1ABAD;
+  color: black
+}
 </style>
