@@ -146,4 +146,16 @@ export default {
 </script>
 
 <style scoped>
+label {
+  margin-right: 5px;
+  margin-left: 10px;
+  display: inline-flex;
+}
+#fields {
+  display: grid;
+}
+input {
+  width: fit-content;
+  margin-bottom: 10px;
+}
 </style>
