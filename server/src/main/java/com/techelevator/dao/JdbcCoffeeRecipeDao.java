@@ -60,22 +60,22 @@ public class JdbcCoffeeRecipeDao implements CoffeeRecipeDao{
     public CoffeeRecipe createCoffeeRecipe(CoffeeRecipe newCoffeeRecipe) {
         String sql = "INSERT INTO coffee_recipes (recipe_name, collection_id, ingredients, directions) VALUES (?, ?, ?, ?)";
         int id = template.update(sql,
-                newCoffeeRecipe.getName(),
+                newCoffeeRecipe.getRecipeName(),
                 newCoffeeRecipe.getCollectionId(),
                 newCoffeeRecipe.getIngredients(),
                 newCoffeeRecipe.getDirections());
-        return getCoffeeRecipeByRecipeName(newCoffeeRecipe.getName());
+        return getCoffeeRecipeByRecipeName(newCoffeeRecipe.getRecipeName());
     }
 
     @Override
     public CoffeeRecipe updateCoffeeRecipe(CoffeeRecipe coffeeRecipe){
         String sql = "UPDATE coffee_recipes SET recipe_name = ?, collection_id = ?, ingredients = ?, directions = ? WHERE recipe_id = ?";
-        template.update(sql, coffeeRecipe.getName(),
+        template.update(sql, coffeeRecipe.getRecipeName(),
                 coffeeRecipe.getCollectionId(),
                 coffeeRecipe.getIngredients(),
                 coffeeRecipe.getDirections(),
-                coffeeRecipe.getId());
-        return getCoffeeRecipeById(coffeeRecipe.getId());
+                coffeeRecipe.getRecipeId());
+        return getCoffeeRecipeById(coffeeRecipe.getRecipeId());
     }
 
     @Override

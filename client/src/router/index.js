@@ -7,6 +7,8 @@ import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import RecipeDetailView from '../views/RecipeDetailView.vue'
+import AddRecipeView from '../views/AddRecipeView.vue'
+import EditRecipeView from '../views/EditRecipeView.vue'
 
 
 /**
@@ -30,6 +32,22 @@ const routes = [
       path: '/coffee_recipes/:recipeId',
       name: 'recipe-detail',
       component: RecipeDetailView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/collection/:collectionId/coffee-recipes",
+      name: "addRecipe",
+      component: AddRecipeView,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/collection/:collectionId/coffee-recipes/:recipeId",
+      name: "editRecipe",
+      component: EditRecipeView,
       meta: {
         requiresAuth: true
       }

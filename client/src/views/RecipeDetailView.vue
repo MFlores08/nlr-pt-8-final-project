@@ -1,6 +1,6 @@
 <template>
     <section id="recipes">
-        <h1 v-for="recipe in recipes" :key="recipe.id">
+        <h1>
                 {{ recipe.name }}
         </h1>
       <table id="recipe-table">
@@ -11,7 +11,7 @@
         </tr>
         </thead>
         <tbody id="recipe-table-body">
-          <tr v-for="recipe in recipes" :key="recipe.id">
+          <tr>
             <td>{{ recipe.ingredients }}</td>
             <td>{{ recipe.directions }}</td>
           </tr>
@@ -23,9 +23,9 @@
   <script>
   export default {
     computed: {
-      recipes() {
-        return this.$store.state.recipes.filter((recipe) => {
-          return recipe.collectionId == this.$store.state.currentCollectionId;
+      recipe() {
+        return this.$store.state.recipes.find((recipe) => {
+          return recipe.recipeId == this.$route.params.recipeId;
         });
       }
     }

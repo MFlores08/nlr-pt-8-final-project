@@ -7,20 +7,15 @@ const resourceService = {
   getCollections() {
     return axios.get('/collections');
   },
-  // getRecipeById(collectionId) {
-  //   switch (collectionId) {
-  //     case 10:
-  //       return collectionId10;
-  //     case 11:
-  //       return collectionId11;
-  //     case 12:
-  //       return collectionId12;
-  //     case 13:
-  //       return collectionId13;
-  //     default:
-  //       return [];
-  //   }
-  // }
+  addRecipe(recipe) {
+    return axios.post('/coffee_recipes', recipe);
+  },
+  updateRecipe(recipeId, recipe) {
+    return axios.put(`/coffee_recipes/${recipeId}`, recipe);
+  },
+  deleteRecipe(recipeId) {
+    return axios.delete(`/coffee_recipes/${recipeId}`);
+  }
 };
 
 export { resourceService };

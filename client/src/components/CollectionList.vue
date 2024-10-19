@@ -10,7 +10,7 @@
           params: {collectionId:collection.id},
         }">
         <font-awesome-icon
-        :icon="['fal', 'mug-hot']"
+        :icon="['fa', 'mug-hot']"
         class="icon"
         title="Add Recipe"/>
       </router-link>
@@ -27,9 +27,9 @@ export default {
       return this.$store.state.collections;
     },
     isAdmin() {
-      return this.$store.state.user &&
-      this.$store.state.user.authoritiesString &&
-      this.$store.state.user.authoritiesString.includes('ROLE_ADMIN');
+      return (this.$store.state.user &&
+      this.$store.state.user.role &&
+      this.$store.state.user.role.includes("ROLE_ADMIN"));
     }
   },
   methods: {
@@ -41,6 +41,10 @@ export default {
 </script>
 
 <style>
+.icon {
+  color: #8783D1;
+}
+
 #collections {
   grid-area: collections;
   border-right: 1px solid black;

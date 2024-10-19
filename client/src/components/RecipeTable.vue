@@ -8,16 +8,27 @@
         </tr>
       </thead>
       <tbody id="recipe-table-body">
-        <tr v-for="recipe in recipes" :key="recipe.id">
+        <tr v-for="recipe in recipes" :key="recipe.recipeId">
           <td>
             <div id="recipe-name">
               <div>
                 <router-link v-bind:to="{
                   name: 'recipe-detail',
-                  params: { recipeId: recipe.id },
+                  params: { recipeId: recipe.recipeId },
                 }">
-                  {{ recipe.name }}
+                  {{ recipe.recipeName }}
                 </router-link>
+                <span class="icon-container" v-if="isAdmin">
+                  <router-link v-bind:to="{
+                    name: 'editRecipe',
+                    params: {
+                      collectionId: recipe.collectionId,
+                      recipeId: recipe.recipeId,
+                    },
+                  }">
+                    <font-awesome-icon :icon="['fas', 'edit']" class="icon" title="Edit Recipe" />
+                  </router-link>
+                </span>
               </div>
             </div>
           </td>
@@ -34,12 +45,21 @@ export default {
       return this.$store.state.recipes.filter((recipe) => {
         return recipe.collectionId == this.$store.state.currentCollectionId;
       });
+    },
+    isAdmin() {
+      return (this.$store.state.user &&
+        this.$store.state.user.role &&
+        this.$store.state.user.role.includes("ROLE_ADMIN"));
     }
   }
 }
 </script>
 
 <style>
+.icon {
+  color: #8783D1;
+}
+
 #recipes {
   grid-area: recipes;
   overflow: auto;

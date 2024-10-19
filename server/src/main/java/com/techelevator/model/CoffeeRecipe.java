@@ -22,11 +22,11 @@ public class CoffeeRecipe {
         this.directions = directons;
     }
 
-    public int getId() {
+    public int getRecipeId() {
         return recipeId;
     }
 
-    public String getName() {
+    public String getRecipeName() {
         return recipeName;
     }
 

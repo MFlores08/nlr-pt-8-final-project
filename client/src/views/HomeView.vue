@@ -3,8 +3,17 @@
     <loading-spinner id="spinner" :spin="true"/>
   </div>
   <div id="main-div" v-else>
-    <collection-list id="collections" />
-    <recipe-table id="recipes" />
+
+    <div class="view-toggle">
+      <button @click="toggleView">Toggle View</button>
+      <span>{{ isTileView ? 'Blue View' : 'Java View' }}</span>
+    </div>
+    <div id="collections" :class="{ tile: isTileView, list: !isTileView }">
+      <collection-list :tile-view="isTileView" />
+    </div>
+    <div id="recipes" :class="{ tile: isTileView, list: !isTileView }">
+      <recipe-table :tile-view="isTileView" />
+    </div>
   </div>
 </template>
 
@@ -18,6 +27,7 @@ export default {
   data() {
     return {
       isLoading: false,
+      isTileView: false,
     };
   },
   created() {
@@ -31,6 +41,11 @@ export default {
       }).finally(() => {
         this.isLoading = false;
       });
+  },
+  methods: {
+    toggleView() {
+      this.isTileView = !this.isTileView;
+    }
   }
 }
 </script>
@@ -45,12 +60,21 @@ export default {
   overflow: auto;
 }
 
-#collections {
-  grid-area: collections;
+#collections,
+#recipes {
+  transition: all 0.3s ease;
 }
 
-#recipes {
-  grid-area: recipes;
+.tile {
+background-color: #b3b1e4;
+}
+
+.list {
+  display: block;
+}
+
+.view-toggle {
+  margin-bottom: 20px;
 }
 
 @media (max-width: 425px) {

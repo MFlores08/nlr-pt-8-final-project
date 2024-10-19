@@ -111,21 +111,23 @@ footer {
   background-color: #CCB7B7;
 }
 
-/* @media (min-width: 1024px) {
+@media (min-width: 1024px) {
     body {
         grid-template-rows: 240px 1fr 30px;
     }
     #top-header {
         flex-direction: column;
     }
-} */
+}
 @media (max-width: 425px) {
   header {
+    display: flex;
     flex-wrap: wrap;
   }
 
   nav {
-    align-self: stretch;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 </style>
